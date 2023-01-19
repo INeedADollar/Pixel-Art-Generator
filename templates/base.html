@@ -1,0 +1,67 @@
+{% if "primaryBackground" in session %}
+    {% set primaryBackground = session["primaryBackground"] %}
+{% else %}
+    {% set primaryBackground = "#fad2a8" %}
+{% endif %}
+
+{% if "secondaryBackground" in session %}
+    {% set secondaryBackground = session["secondaryBackground"] %}
+{% else %}
+    {% set secondaryBackground = "#fef7e0" %}
+{% endif %}
+
+{% if "foregroundColor" in session %}
+    {% set foregroundColor = session["foregroundColor"] %}
+{% else %}
+    {% set foregroundColor = "#e8710a" %}
+{% endif %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>PIXEL ART GENERATOR</title>
+        {% block style %} {% endblock %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="{{ url_for("static", filename="js/script.js") }}"></script>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="/" style="text-decoration: none;"><h1>PIXEL ART GENERATOR</h1></a>
+
+            <div class="pensulitza">
+                <i class="fa fa-solid fa-paint-brush"></i>
+            </div>
+        </div>
+
+        <div class="theme">
+            <div class="colors">
+                <input type="color" class="color" />
+                <p>Primary background color</p>
+            </div>
+            <div class="colors">
+                <input type="color" class="color" />
+                <p>Secondary background color</p>
+            </div>
+            <div class="colors">
+                <input type="color" class="color" />
+                <p>Foreground color</p>
+            </div>
+        </div>
+
+        <div class="content">
+            {% block content %} {% endblock %}
+        </div>
+
+        <footer>
+            <p>Made with <i class="fa fa-solid fa-heart"></i> by Emanuel & Andreea</p>
+        </footer>
+    </body>
+    <script>
+        const colors = new Object();
+        colors.primaryBackground = "{{ primaryBackground }}";
+        colors.secondaryBackground = "{{ secondaryBackground }}";
+        colors.foregroundColor = "{{ foregroundColor }}";
+
+        setColors(colors);
+    </script>
+</html>

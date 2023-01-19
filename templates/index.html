@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for("static", filename="css/index.css") }}" />
+{% endblock %}
+
+{% block content %}
+<div class="div1">
+    <span> >> CLICK OR DRAG THE IMAGE HERE << </span>
+</div>
+
+<p class="but">Generate pixel art</p>
+<p class="but">Generate real image</p>
+{% endblock %}

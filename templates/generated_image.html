@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for("static", filename="css/generated_image.css") }}" />
+{% endblock %}
+
+{% block content %}
+<div class="div1">
+    <img src="{{ url_for("static", filename=image_path) }}">
+</div>
+
+<p class="but">Download image</p>
+{% endblock %}
